@@ -15,10 +15,8 @@ To make sure that Snopi matches user input as often as possible,
 i added a training interface.
 
 # Demo 
-<img src="https://cdn4.iconfinder.com/data/icons/office-and-business-conceptual-flat/202/3-512.png" width="15" height="15" >
 
-[![button](https://cdn4.iconfinder.com/data/icons/office-and-business-conceptual-flat/202/3-512.png)](https://snopi.herokuapp.com)
-
+ <a href="https://snopi.herokuapp.com">Go</a>
 
 # Installation
 git clone https://github.com/karimation/snopi
