@@ -16,7 +16,7 @@ i added a training interface.
 
 # Demo 
 
- <a href="https://snopi.herokuapp.com">Go</a>
+ <a href="https://snopi.herokuapp.com">Run Snopi demo live</a>
 
 # Installation
 git clone https://github.com/karimation/snopi
@@ -33,6 +33,13 @@ yarn install
 yarn start
 ```
 
+
+#### Create .env fill and fill the env vars:
+
+```
+APIAI_TOKEN=
+APIAI_SESSION_ID=some_unique_session_id
+```
 
 # License:
 
