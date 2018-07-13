@@ -14,6 +14,10 @@ You can ask questions to these bots orally with a voice command and they have th
 To make sure that Snopi matches user input as often as possible, 
 i added a training interface.
 
+# Demo 
+
+[![button](https://cdn4.iconfinder.com/data/icons/office-and-business-conceptual-flat/202/3-512.png)](https://snopi.herokuapp.com)
+
 
 # Installation
 git clone https://gitlab.com/steemitgram/steemitgram-mobile.git
