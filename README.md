@@ -34,7 +34,7 @@ yarn start
 ```
 
 
-#### Create .env fill and fill the env vars:
+#### Create .env file and fill the env vars:
 
 ```
 APIAI_TOKEN=
