@@ -1,118 +1,115 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<!-- Load the Paper.js library -->
+    <!-- Load the Paper.js library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script type="text/javascript" src="../lib/paper.js"></script>
-<!-- Define inlined PaperScript associate it with myCanvas -->
-<script type="text/paperscript" src="face.js" canvas="faceCanvas"></script>
-<script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="../lib/paper.js"></script>
+    <!-- Define inlined PaperScript associate it with myCanvas -->
+    <script type="text/paperscript" src="face.js" canvas="faceCanvas"></script>
+    <script type="text/javascript" src="main.js"></script>
 </head>
+
 <body>
-    <canvas  style="height: 92%;width: 92%;" id="faceCanvas" resize ></canvas>
-  <br>
-  <button id='refresh'>Refresh</button>
-  <button id='pause' style="background-color: red;">Pause</button>
+    <canvas style="height: 92%;width: 92%;" id="faceCanvas" resize></canvas>
+    <br>
+    <button id='refresh'>Refresh</button>
+    <button id='pause' style="background-color: red;">Pause</button>
 
 
-	<h1 style="padding-top: 100px;text-align: left;">Training</h1>
+    <h1 style="padding-top: 100px;text-align: left;">Training</h1>
 
-	<div>
+    <div>
 
-	    <label for="lname">UserName</label>
-	    <input type="text" id="name" name="lastname" placeholder="UserName..">
+        <label for="fname">Question</label>
+        <input type="text" id="question" name="firstname" placeholder="Question..">
 
-	  	    <label for="fname">Question</label>
-	    <input type="text" id="question" name="firstname" placeholder="Question..">
-
-	    <label for="lname">Response</label>
-	    <input type="text" id="response" name="lastname" placeholder="Response..">
+        <label for="lname">Response</label>
+        <input type="text" id="response" name="lastname" placeholder="Response..">
 
 
-	    <p id="checkFields" style="color: red;display: none">Please fill out all required fields ! </p>
+        <p id="checkFields" style="color: red;display: none">Please fill out all required fields ! </p>
         <input id='send' type="submit" value="Submit">
 
-	</div>
+    </div>
     <script>
 
 
-        $( "#send" ).click(function() {
-          const name = $('#name').val();
-          const question = $('#question').val();
-          const response = $('#response').val();
-          alert( "are you sure 0?" );
-                $('#checkFields').hide();
-                if(true){//name.length==8 && question.length>2 && response.length>2){
-
-                $.ajax({
-                  url: 'https://api.dialogflow.com/api/intents?lang=en',
-                  type: 'post',
-                  data: {"name":"nameee","auto":true,"contexts":[],"templates":[],"responses":[{"parameters":[],"resetContexts":false,"affectedContexts":[],"messages":[{"type":0,"speech":"reponseeee"}],"speech":[],"defaultResponsePlatforms":{}}],"source":null,
-                  "priority":500000,"cortanaCommand":{"navigateOrService":"NAVIGATE","target":""},"events":[],"userSays":[{"isTemplate":false,"data":[{"text":"question"}],"count":0,"id":null,"updated":null}]},
-                  headers: {
-                          'Authorization': 'Bearer eafee8d8efc7491fb3d6dfecac94f687',
-                          'Content-Type': 'application/json'
-                  },
-                  success: function (data) {
-                      console.info(data);
-                      alert('ops');
-                  },
-                  error: function (data){
+        $("#send").click(function () {
+            const question = $('#question').val();
+            const response = $('#response').val();
+            alert("are you sure ?");
+            $('#checkFields').hide();
+            $.ajax({
+                url: 'https://api.dialogflow.com/api/intents?lang=en',
+                type: 'post',
+                data: {
+                    "name": "nameee", "auto": true, "contexts": [], "templates": [], "responses": [{ "parameters": [], "resetContexts": false, "affectedContexts": [], "messages": [{ "type": 0, "speech": "reponseeee" }], "speech": [], "defaultResponsePlatforms": {} }], "source": null,
+                    "priority": 500000, "cortanaCommand": { "navigateOrService": "NAVIGATE", "target": "" }, "events": [], "userSays": [{ "isTemplate": false, "data": [{ "text": "question" }], "count": 0, "id": null, "updated": null }]
+                },
+                headers: {
+                    'Authorization': 'Bearer eafee8d8efc7491fb3d6dfecac94f687',
+                    'Content-Type': 'application/json'
+                },
+                success: function (data) {
+                    console.info(data);
+                    alert('ops');
+                },
+                error: function (data) {
                     alert("Outlet Creation Failed, please try again.");
                     alert(JSON.stringify(data));
-                  }
+                }
 
-              });
+            });
 
 
-          }else{
-            alert('ops');
+        }else {
+                alert('ops');
               $('#checkFields').show();
-          }
+            }
         });
     </script>
 
-<style>
-input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+    <style>
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-input[type=submit]:hover {
-    background-color: #45a049;
-}
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
 
-div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-</style>
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/script.js"></script>
-<style>
-
-
-</style>
+    <style>
+    </style>
 </body>
 
 </html>
