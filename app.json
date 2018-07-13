@@ -1,0 +1,17 @@
+{
+  "name": "Snopi",
+  "description": "Snopi Chat Bot with Web Speech API AND Dialogflow",
+  "repository": "https://github.com/karimation/snopi",
+  "keywords": ["ai", "dialogflow", "bot", "w3c"],
+  "env": {
+    "APIAI_TOKEN": {
+      "description": "Dialogflow Client access token",
+      "value": ""
+    },
+    "APIAI_SESSION_ID": {
+      "description": "An arbitrary string",
+      "value": ""
+    }
+  },
+  "image": "heroku/nodejs"
+}
