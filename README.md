@@ -2,7 +2,7 @@
 Voice assisted bot with Web Speech API and DialogFlow
 
 <div>
-<img src="screenshots/1.png">
+<img src="screenshots/test.gif">
 <img src="screenshots/2.png">
 </div>
 
