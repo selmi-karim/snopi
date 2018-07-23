@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="../lib/paper.js"></script>
+        
+
     <!-- Define inlined PaperScript associate it with myCanvas -->
     <script type="text/paperscript" src="face.js" canvas="faceCanvas"></script>
 </head>
@@ -16,23 +18,10 @@
     <br>
     <button id='refresh'>Refresh</button>
     <button id='pause' style="background-color: red;">Pause</button>
+    <button id='test'>Training</button>
 
 
-    <h1 style="padding-top: 100px;text-align: left;">Training</h1>
 
-    <div>
-
-        <label for="fname">Question</label>
-        <input type="text" id="question" name="firstname" placeholder="Question..">
-
-        <label for="lname">Response</label>
-        <input type="text" id="response" name="lastname" placeholder="Response..">
-
-
-        <p id="checkFields" style="color: red;display: none">Please fill out all required fields ! </p>
-        <input id='send' type="submit" value="Submit">
-
-    </div>
 
     <style>
         input[type=text],
@@ -70,6 +59,7 @@
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/script.js"></script>
+    <script src="../js/training.js"></script>
     <style>
     </style>
 </body>
