@@ -59,10 +59,8 @@ recognition.addEventListener('speechend', () => {
 
 
 recognition.addEventListener('nomatch', (e) => {
-    synthVoice('are you okey ?',function(data){
-        //alert(data);
         startMicro();
-      });
+      
 });
 
 recognition.addEventListener('error', (e) => {
