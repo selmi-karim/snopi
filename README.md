@@ -14,7 +14,7 @@ Snopi is bot that replies to a user’s query through voice and text.
 You can ask questions to these bots orally with a voice command and they have the ability to answer back in a specific voice.
 
 To make sure that Snopi matches user input as often as possible, 
-i added a training interface.
+i added a training dashboard.
 
 # Demo 
 
