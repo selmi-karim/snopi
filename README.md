@@ -25,9 +25,8 @@ git clone https://github.com/karimation/snopi
 
 ```
 npm install
-nodemon
+npm start
 ```
-
 or
 
 ```
