@@ -1,6 +1,5 @@
 'use strict';
 
-
 const express = require('express');
 const app = express();
 const request = require('request');
@@ -48,7 +47,6 @@ io.on('connection', function (socket) {
       let aiText = response.result.fulfillment.speech;
 
       let aiAction = response.result.action;
-      // confused , sad, joyous, happy, default
       let emotionf = ['confused', 'sad', 'joyous', 'happy', 'default']
       if (aiAction == 'input.unknown') {
         face.emit('emotionchange', { emotion: emotionf[Math.floor(Math.random() * (2))] });
@@ -60,7 +58,6 @@ io.on('connection', function (socket) {
       face.emit('message', { message: 'You:' + text + '\nSnopi:' + aiText });
       face.emit('talking', { talking: 'true' });
     });
-
     apiaiReq.on('error', (error) => {
       console.log(error);
     });
