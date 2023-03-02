@@ -7,59 +7,20 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="../lib/paper.js"></script>
-        
+
 
     <!-- Define inlined PaperScript associate it with myCanvas -->
     <script type="text/paperscript" src="face.js" canvas="faceCanvas"></script>
 </head>
 
 <body>
-    <canvas style="height: 92%;width: 92%;" id="faceCanvas" resize></canvas>
+    <canvas id="faceCanvas" resize></canvas>
+    <button id="faceCanvasButton" style="display: none;">test</button>
     <br>
-    <button id='refresh'>Refresh</button>
-    <button id='pause' style="background-color: red;">Pause</button>
-    <button id='test'>Training</button>
 
-
-
-
-    <style>
-        input[type=text],
-        select {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        input[type=submit] {
-            width: 100%;
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        input[type=submit]:hover {
-            background-color: #45a049;
-        }
-
-        div {
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            padding: 20px;
-        }
-    </style>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/script.js"></script>
-    <script src="../js/training.js"></script>
     <style>
     </style>
 </body>

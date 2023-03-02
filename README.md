@@ -21,7 +21,7 @@ i added a training dashboard.
  <a href="https://snopi.herokuapp.com">Run Snopi demo live</a>
 
 # Installation
-git clone https://github.com/karimation/snopi
+git clone https://github.com/selmi-kerim/snopi
 
 ```
 npm install
@@ -44,4 +44,4 @@ APIAI_SESSION_ID=some_unique_session_id
 
 # License:
 
-<a href="LICENSE">MIT License</a> Copyright (c) 2018 karimation
+<a href="LICENSE">MIT License</a> Copyright (c) 2018

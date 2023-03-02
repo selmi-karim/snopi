@@ -11,56 +11,56 @@ const server = app.listen(process.env.PORT || 5000, () => {
   console.log('Express server listening on port %d in %s mode', server.address().port, app.settings.env);
 });
 
-/**
- * Dialogflow Config
- */
-const APIAI_TOKEN = process.env.APIAI_TOKEN;
-const APIAI_SESSION_ID = process.env.APIAI_SESSION_ID;
-
-
 const io = require('socket.io')(server);
 io.on('connection', function (socket) {
   console.log('a user connected');
 });
 var face = io.of('/face').on('connection', function (socket) { });
 
-const apiai = require('apiai')(APIAI_TOKEN);
-
 // Web UI
 app.get('/', (req, res) => {
   res.sendFile('index.html');
 });
 
-
-
 io.on('connection', function (socket) {
   socket.on('chat message', (text) => {
     console.log('Message: ' + text);
 
-    // Get a reply from Dialogflow
-
-    let apiaiReq = apiai.textRequest(text, {
-      sessionId: APIAI_SESSION_ID
-    });
-
-    apiaiReq.on('response', (response) => {
-      let aiText = response.result.fulfillment.speech;
-
-      let aiAction = response.result.action;
-      let emotionf = ['confused', 'sad', 'joyous', 'happy', 'default']
-      if (aiAction == 'input.unknown') {
-        face.emit('emotionchange', { emotion: emotionf[Math.floor(Math.random() * (2))] });
-      } else {
-        face.emit('emotionchange', { emotion: emotionf[Math.floor(2 + Math.random() * (3))] });
-      }
-      console.log('Bot reply: ' + aiText);
-      socket.emit('bot reply', aiText);
-      face.emit('message', { message: 'You:' + text + '\nSnopi:' + aiText });
-      face.emit('talking', { talking: 'true' });
-    });
-    apiaiReq.on('error', (error) => {
-      console.log(error);
-    });
-    apiaiReq.end();
+    // Get a reply from GPT3
+    OpenaiFetchAPI(text)
   });
 });
+
+function OpenaiFetchAPI(text) {
+  var url = "https://api.openai.com/v1/completions";
+  var bearer = 'Bearer ' + "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"
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': bearer,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      model: "text-davinci-003",
+      prompt: text,
+      temperature: 0.5,
+      max_tokens: 60,
+      top_p: 0.3,
+      frequency_penalty: 0.5,
+      presence_penalty: 0.0
+    })
+  }).then(response => {
+
+    return response.json()
+
+  }).then(data => {
+
+    face.emit('message', { message: data["choices"][0].text });
+    face.emit('talking', { talking: 'true' });
+
+  })
+    .catch(error => {
+      console.log('Something bad happened ' + error)
+    });
+
+}
