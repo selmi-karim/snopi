@@ -33,7 +33,7 @@ io.on('connection', function (socket) {
 
 function OpenaiFetchAPI(text) {
   var url = "https://api.openai.com/v1/completions";
-  var bearer = 'Bearer ' + "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"
+  var bearer = 'Bearer ' + process.env.APIAI_TOKEN
   fetch(url, {
     method: 'POST',
     headers: {
